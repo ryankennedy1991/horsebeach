@@ -2,8 +2,8 @@ global:
   env:
     - LARAVEL_ENV: production
   web1:
-    document_root: /public
-    php_version: 5.6
+    document_root: public
+    php_version: 5.6.25
     php_extensions:
       - mbstring
       - mcrypt
