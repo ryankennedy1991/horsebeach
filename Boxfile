@@ -1,5 +1,4 @@
 global:
-<<<<<<< HEAD
     env:
         - APP_ENV: production
         - APP_DEBUG: false
@@ -44,7 +43,6 @@ cache1:
 
 storage1:
     type: nfs
-=======
   env:
     - LARAVEL_ENV: production
   web1:
@@ -74,4 +72,3 @@ storage1:
       - "php artisan migrate"
   cache1:
     type: redis
->>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
