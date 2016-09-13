@@ -178,8 +178,12 @@ class EventsController extends Controller
 
 
             //mail users about new event
-            $mail = Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
-          
+            Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
+            Mail::to('jason.boardman@hotmail.co.uk')->send(new EventAdded($event));
+            Mail::to('mattbooth91@gmail.com')->send(new EventAdded($event));
+            Mail::to('ryan-tn-fc@hotmail.co.uk')->send(new EventAdded($event));
+            Mail::to('thomas.g.featherstone@hotmail.com')->send(new EventAdded($event));
+            
     		$request->session()->flash('message', 'Successfully Created Event!');
     		return Redirect::route('events.show', $event->id);
 
