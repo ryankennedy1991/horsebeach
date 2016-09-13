@@ -7,14 +7,14 @@
 
 <li>
                     <a href="#" title="Support" rel="tooltip" data-toggle="dropdown" class="icon_support tips menuDrop">
-                        <span class="badge badge-warning">5</span>
+                        <span class="badge badge-warning">0</span>
                     </a>
 
                     <ul class="dropdown-menu pull-right gradient user_dropdown">
                       
 
                         <li class="list ">
-                            <div class="list_title">
+                            <div class="list_title hidden">
                                 Resolved ticket!
                                 <span>Jul 18, 2012 by <a href="#">username</a></span>
                             </div>
