@@ -21,7 +21,9 @@
   
                 
                 <form action="{{ url('/password/reset') }}" method="POST">
+                <input type="hidden" name="token" value="{{ $token }}">
                 {{ csrf_field() }}
+                               
 
                 
                                 <input id="email" type="text" class="span12 form-group{{ $errors->has('email') ? ' has-error' : '' }}" name="email" placeholder="Email Address" value="{{ old('email') }}" required autofocus>
