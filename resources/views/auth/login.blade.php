@@ -7,7 +7,6 @@
 <div class="container-fluid">
 
     <div class="row-fluid">
-<<<<<<< HEAD
     
 
 
@@ -27,7 +26,6 @@
                 <form action="{{ url('/login') }}" method="post">
                 {{ csrf_field() }}
                     <input type="text" id='email' name="Email" placeholder="Email" class="span12 form-group{{ $errors->has('email') ? ' has-error' : '' }}"/>
-=======
 
         <div class="span12">
             <div class="login">
@@ -35,7 +33,7 @@
                 <form action="{{ url('/login') }}" method="post">
                 {{ csrf_field() }}
                     <input type="text" id="email" name="email" placeholder="Email" class="span12 form-group{{ $errors->has('email') ? ' has-error' : '' }}"/>
->>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
+
                     @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -58,8 +56,6 @@
     </div>
 
 </div>
-<<<<<<< HEAD
+
 @endsection
-=======
-@sectionend
->>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
+
