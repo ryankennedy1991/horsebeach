@@ -14,9 +14,12 @@ use Storage;
 use Carbon\Carbon;
 use Session;
 
+<<<<<<< HEAD
 use App\Mail\EventAdded;
 use Illuminate\Support\Facades\Mail;
 
+=======
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
 
 class EventsController extends Controller
 {
@@ -177,9 +180,12 @@ class EventsController extends Controller
 			} 
 
 
+<<<<<<< HEAD
             //mail users about new event
             $mail = Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
           
+=======
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
     		$request->session()->flash('message', 'Successfully Created Event!');
     		return Redirect::route('events.show', $event->id);
 

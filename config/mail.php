@@ -16,7 +16,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'driver' => env('MAIL_DRIVER', 'mailgun'),
+=======
+    'driver' => env('MAIL_DRIVER', 'smtp'),
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +60,13 @@ return [
     */
 
     'from' => [
+<<<<<<< HEAD
         'address' => 'horsebeachband@gmail.com',
         'name' => 'Horsbeach Calendar',
+=======
+        'address' => 'hello@example.com',
+        'name' => 'Example',
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
     ],
 
     /*

@@ -63,9 +63,13 @@
                                      
                                 @endif
 
+<<<<<<< HEAD
                                 <p>Name: {{$user->name}}</p>
                                 <p>Email Address: {{$user->email}}</p>
 
+=======
+                                {{$user->email}}
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
 
                                                           
 

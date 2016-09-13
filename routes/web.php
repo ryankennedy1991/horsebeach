@@ -11,8 +11,11 @@
 |
 */
 
+<<<<<<< HEAD
 use App\Mail\EventAdded;
 
+=======
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
 Route::get('dashboard', function () {
 	if (Auth::check(Auth::user())) {
 		return view('dashboard');
@@ -31,7 +34,10 @@ Route::get('logout', function() {
 
 Auth::routes();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
 Route::get('/home', 'HomeController@index');
 
 
@@ -51,8 +57,11 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('users/{id}', 'UsersController@show');
 });
 
+<<<<<<< HEAD
 Route::get('/testmail', function(){
 	Mail::to('horsebeachband@gmail.com')->send(new EventAdded);
 });
 
+=======
+>>>>>>> 076c5bcf7b0c241df195d9410eb8710493d972e7
 
