@@ -14,13 +14,15 @@
 
         <div class="span12">
             <div class="login">
+                 @if (!empty($fail))
                 <div class="alert alert-error">
                 <button data-dismiss="alert" class="close" type="button">×</button>
                 <strong>Error!</strong> 
-                            @if (!empty($fail))
+                           
                             {{ $fail }}    
-                        @endif
+                           
                 </div>
+                 @endif
                 <img src="img/user.png" alt="user" class="glossy"/>
                 <form action="{{ url('/login') }}" method="post">
                 {{ csrf_field() }}
@@ -41,6 +43,8 @@
                     @endif
 
                     <input type="submit" name="login" value="Login" class="btn btn-info span12"/>
+                    <br/>
+                    <div class="center"><span class="center"><a class="center" href="{{ url('/password/reset')}}">Forgot password?</a></span></div>
                 </form>
             </div>
         </div>
