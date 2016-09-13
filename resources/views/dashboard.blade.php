@@ -45,7 +45,50 @@
                             <div class="separator">
                                 <span></span>
                             </div>
+                            <div class="row-fluid">
 
+                                <!--Chart Icons -->
+                                <div class="span3">
+                                    <div class="bolt-chart-legend">
+                                        <div class="bolt-chart-icon">
+                                            <img src="img/icons/colored/clock.png"/>
+                                        </div>
+                                        <div class="bolt-chart-heading">{{$events}}</div>
+                                        <div class="bolt-chart-desc">UPCOMING GIGS</div>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <div class="bolt-chart-legend">
+                                        <div class="bolt-chart-icon">
+                                            <img src="img/icons/colored/coin.png"/>
+                                        </div>
+                                        <div class="bolt-chart-heading">2000</div>
+                                        <div class="bolt-chart-desc">BANDCAMP RECORDS SOLD</div>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <div class="bolt-chart-legend">
+                                        <div class="bolt-chart-icon">
+                                            <img src="img/icons/colored/hand_point.png"/>
+                                        </div>
+                                        <div class="bolt-chart-heading">33214</div>
+                                        <div class="bolt-chart-desc">FACEBOOK LIKES</div>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <div class="bolt-chart-legend">
+                                        <div class="bolt-chart-icon">
+                                            <img src="img/icons/colored/messenger.png"/>
+                                        </div>
+                                        <div class="bolt-chart-heading">10894</div>
+                                        <div class="bolt-chart-desc">TWITTER FOLLOWERS</div>
+                                    </div>
+                                </div>
+                                <!--Chart Icons End -->
+                            </div>
                             
 
                             <div class="row-fluid">

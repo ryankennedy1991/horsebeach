@@ -56,9 +56,9 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key'    => 'AKIAJAB6AM5DVRHG55SQ',
-            'secret' => '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',
-            'region' => 'eu-west-1',
+            'key'    => ENV('AWS_KEY'),
+            'secret' => ENV('AWS_SECRET'),
+            'region' => ENV('AWS_LOCATION'),
             'bucket' => 'horsebeach',
         ],
 

@@ -18,6 +18,12 @@
 
         <div class="span12">
             <div class="login">
+
+                @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
   
                 
                 <form action="{{ url('/password/email') }}" method="POST">

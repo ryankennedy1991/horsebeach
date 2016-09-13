@@ -31,21 +31,8 @@
 
                         <div class="contents">
 
-                            <div class="row-fluid">
-                                <div class="span12">
-                                    <div class="ico_16_dashboard content_header">
-                                        <h3>Calendar</h3>
-                                        <span>Gigs 'n' Events</span>
-                                    </div>
-                                </div>
+                        
 
-                                
-
-                            </div>
-
-                            <div class="separator">
-                                <span></span>
-                            </div>
 
                             
 

@@ -15,15 +15,7 @@
 use App\Mail\EventAdded;
 
 
-Route::get('dashboard', function () {
-	if (Auth::check(Auth::user())) {
-		return view('dashboard');
-	} else {
-		return view('auth.login', ['fail' => 'You must be logged in to view this page']);
-	}
 
-    
-});
 
 Route::get('logout', function() {
     Auth::logout();
@@ -39,6 +31,7 @@ Route::get('/home', 'HomeController@index');
 
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('dashboard', 'DashboardController@index');
 	 Route::post('events/{id}/attachment', ['as' => 'addAttachment', 'uses' => 'EventsController@addAttachment']);
 	 Route::post('events/{id}/attachment/{aid}', ['as' => 'deleteAttachment', 'uses' => 'EventsController@deleteAttachment']);
 	Route::resource('events', 'EventsController');
