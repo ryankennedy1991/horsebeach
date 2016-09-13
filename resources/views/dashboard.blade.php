@@ -63,8 +63,8 @@
                                         <div class="bolt-chart-icon">
                                             <img src="img/icons/colored/coin.png"/>
                                         </div>
-                                        <div class="bolt-chart-heading">2000</div>
-                                        <div class="bolt-chart-desc">BANDCAMP RECORDS SOLD</div>
+                                        <div class="bolt-chart-heading">0</div>
+                                        <div class="bolt-chart-desc">SOME KIND OF STAT</div>
                                     </div>
                                 </div>
 
@@ -73,8 +73,8 @@
                                         <div class="bolt-chart-icon">
                                             <img src="img/icons/colored/hand_point.png"/>
                                         </div>
-                                        <div class="bolt-chart-heading">33214</div>
-                                        <div class="bolt-chart-desc">FACEBOOK LIKES</div>
+                                        <div class="bolt-chart-heading">0</div>
+                                        <div class="bolt-chart-desc">ANOTHER STAT</div>
                                     </div>
                                 </div>
 
@@ -83,8 +83,8 @@
                                         <div class="bolt-chart-icon">
                                             <img src="img/icons/colored/messenger.png"/>
                                         </div>
-                                        <div class="bolt-chart-heading">10894</div>
-                                        <div class="bolt-chart-desc">TWITTER FOLLOWERS</div>
+                                        <div class="bolt-chart-heading">0</div>
+                                        <div class="bolt-chart-desc">SO MANY STATS</div>
                                     </div>
                                 </div>
                                 <!--Chart Icons End -->
