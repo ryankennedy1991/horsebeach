@@ -26,11 +26,12 @@ Route::get('logout', function() {
 Auth::routes();
 
 
-Route::get('/', 'DashboardController@index');
-Route::get('/home', 'DashboardController@index');
+
 
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('/', 'DashboardController@index');
+Route::get('/home', 'DashboardController@index');
 	Route::get('dashboard', 'DashboardController@index');
 	 Route::post('events/{id}/attachment', ['as' => 'addAttachment', 'uses' => 'EventsController@addAttachment']);
 	 Route::post('events/{id}/attachment/{aid}', ['as' => 'deleteAttachment', 'uses' => 'EventsController@deleteAttachment']);

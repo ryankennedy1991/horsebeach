@@ -43,7 +43,7 @@
                     <ul class="dropdown-menu pull-right gradient user_dropdown">
 
                         
-                        <li><a id="settings" name="settings" href="{{ url('/users/'.Auth::user()->id) }}"><i class="icon-cog"></i>Account settings</a></li>
+                        <li><a id="settings" name="settings" href=""><i class="icon-cog"></i>Account settings</a></li>
                         <li><a href="index.html"> <i class="icon-share-alt"></i>Logout</a></li>
                     </ul>
                 </li>
