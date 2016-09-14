@@ -180,17 +180,41 @@ class EventsController extends Controller
 
 
             //mail users about new event
-            // Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
-            // Mail::to('jason.boardman@hotmail.co.uk')->send(new EventAdded($event));
-            // Mail::to('mattbooth91@gmail.com')->send(new EventAdded($event));
-            // Mail::to('ryan-tn-fc@hotmail.co.uk')->send(new EventAdded($event));
-            // Mail::to('thomas.g.featherstone@hotmail.com')->send(new EventAdded($event));
+            Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
+            Mail::to('jason.boardman@hotmail.co.uk')->send(new EventAdded($event));
+            Mail::to('mattbooth91@gmail.com')->send(new EventAdded($event));
+            Mail::to('ryan-tn-fc@hotmail.co.uk')->send(new EventAdded($event));
+            Mail::to('thomas.g.featherstone@hotmail.com')->send(new EventAdded($event));
 
+
+            //check if we want to text the band
             if ($request->input('band-check')) {
                     $date = $request->input('begin-date');
 
+                    // text me
                     Nexmo::message()->send([
                         'to' => '447885451828',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                    ]);
+
+                    // text matt
+                    Nexmo::message()->send([
+                        'to' => '447427507067',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                    ]);
+
+                    //text tom
+                    Nexmo::message()->send([
+                        'to' => '44545635237',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                    ]);
+
+                    //text dave
+                    Nexmo::message()->send([
+                        'to' => '44964539357',
                         'from' => '447885451828',
                         'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
                     ]);
