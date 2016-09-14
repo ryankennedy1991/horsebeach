@@ -95,16 +95,12 @@
                                 <div class="span12">
 
                                     <div class="widget_wrapper">
+                                    <div class="row-fluid center">
+                                                    <a class="center twitter-timeline"  href="https://twitter.com/search?q=horsebeach" data-widget-id="776159078078877696">Tweets about horsebeach</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-                                        <div class="widget_header">
-                                            <h3 class="icos_calendar">Horsecalendar</h3>
-                                        </div>
-
-                                        <div class="widget_content">
-                                            <div id="utopia-fullcalendar-2" class="utopia-calendar-day">
-
-                                            </div>
-                                        </div>
+                                    </div>
+          
 
                                     </div><!-- widget_wrapper end -->
                                 </div>
