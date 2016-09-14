@@ -192,7 +192,7 @@
                                                     </div>
 
                                                     <div class="span10">
-                                                        <input value="{{$event->confirmed}}" type="checkbox" name="confirmed" class="radio1">
+                                                        <input value="{{$event->confirmed}}" type="checkbox" name="confirmed" class="radio1" {{($event->confirmed == 1) ? 'checked' : "" }}>
                                                     </div>
                                                 </div>
                                             </div>
