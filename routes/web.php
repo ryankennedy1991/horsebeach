@@ -12,7 +12,7 @@
 */
 
 
-use App\Mail\EventAdded;
+use App\Notifications\GigOffer;
 
 
 

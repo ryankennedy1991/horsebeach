@@ -17,6 +17,8 @@ use Session;
 
 use App\Mail\EventAdded;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\GigOffer;
+use Nexmo\Laravel\Facade\Nexmo;
 
 class EventsController extends Controller
 {
@@ -178,12 +180,22 @@ class EventsController extends Controller
 
 
             //mail users about new event
-            Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
-            Mail::to('jason.boardman@hotmail.co.uk')->send(new EventAdded($event));
-            Mail::to('mattbooth91@gmail.com')->send(new EventAdded($event));
-            Mail::to('ryan-tn-fc@hotmail.co.uk')->send(new EventAdded($event));
-            Mail::to('thomas.g.featherstone@hotmail.com')->send(new EventAdded($event));
-            
+            // Mail::to('horsebeachband@gmail.com')->send(new EventAdded($event));
+            // Mail::to('jason.boardman@hotmail.co.uk')->send(new EventAdded($event));
+            // Mail::to('mattbooth91@gmail.com')->send(new EventAdded($event));
+            // Mail::to('ryan-tn-fc@hotmail.co.uk')->send(new EventAdded($event));
+            // Mail::to('thomas.g.featherstone@hotmail.com')->send(new EventAdded($event));
+
+            if ($request->input('band-check')) {
+                    $date = $request->input('begin-date');
+
+                    Nexmo::message()->send([
+                        'to' => '447885451828',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                    ]);
+            }
+
     		$request->session()->flash('message', 'Successfully Created Event!');
     		return Redirect::route('events.show', $event->id);
 

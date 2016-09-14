@@ -198,8 +198,19 @@
                                                     <div class="span10">
 
                                                         <input type="checkbox" name="confirmed" class="radio1">
-                                                        
                                                     </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row-fluid">
+                                                    <div class="span2">
+                                                        {!! Form::label('band-check', 'Ask if band is available?') !!}
+                                                    </div>
+
+                                                    <div class="span10">
+
+                                                        <input type="checkbox" name="band-check" class="radio1">
+                                                    </div>
+
                                                 </div>
                                             </div>
 
