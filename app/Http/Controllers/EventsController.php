@@ -99,10 +99,18 @@ class EventsController extends Controller
     		$event->description = $request->input('description');
     		$event->confirmed = (isset($confirmed)) ? True : False;
 
+
+                $date = $request->input('begin-date');
+
+
+            
+
     		$event->save();
 
     		$request->session()->flash('message', 'Successfully Updated Event!');
     		return Redirect::route('events.show', $event->id);
+
+
 
 
     	}
@@ -189,34 +197,38 @@ class EventsController extends Controller
 
             //check if we want to text the band
             if ($request->input('band-check')) {
-                    $date = $request->input('begin-date');
+                    $date = DateTime::createFromFormat('d-m-Y', $request->input('begin-date'));
+                    $fdate = $date->format('l, jS F Y');
+                    $smsfee = ($event->fee == 0) ? 'TBC' : '£'.$event->fee;
+
+                    
 
                     // text me
                     Nexmo::message()->send([
                         'to' => '447885451828',
                         'from' => '447885451828',
-                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
                     ]);
 
                     // text matt
                     Nexmo::message()->send([
                         'to' => '447427507067',
                         'from' => '447885451828',
-                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
                     ]);
 
                     //text tom
                     Nexmo::message()->send([
-                        'to' => '44545635237',
+                        'to' => '447545635237',
                         'from' => '447885451828',
-                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
                     ]);
 
                     //text dave
                     Nexmo::message()->send([
-                        'to' => '44964539357',
+                        'to' => '447964539357',
                         'from' => '447885451828',
-                        'text' => 'New gig on '.$date.' at '.$event->location.'. Please let me know if you can make it.'
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
                     ]);
             }
 
@@ -275,5 +287,58 @@ class EventsController extends Controller
     	Session::flash('message', 'Successfully Deleted Event');
     	return Redirect::route('events.index');
 
+    }
+
+    public function resend(Request $request, $id){
+
+        $event = Event::find($id);
+        $date = DateTime::createFromFormat('Y-m-d', $event->event_begin);
+        $fdate = $date->format('l, jS F Y');
+        $smsfee = ($event->fee == 0) ? 'TBC' : '£'.$event->fee;
+
+
+
+                if ($request->input('ryan-check')) {
+                    // text me
+                    Nexmo::message()->send([
+                        'to' => '447885451828',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
+                    ]);
+                }
+
+                if ($request->input('matt-check')) {
+
+                    // text matt
+                    Nexmo::message()->send([
+                        'to' => '447427507067',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
+                    ]);
+                }
+
+                if ($request->input('tom-check')) {
+
+                    //text tom
+                   Nexmo::message()->send([
+                        'to' => '447545635237',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
+                    ]);
+
+                }
+
+                if ($request->input('dave-check')) {
+
+                    //text dave
+                    Nexmo::message()->send([
+                        'to' => '447964539357',
+                        'from' => '447885451828',
+                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
+                    ]);
+                }
+
+        Session::flash('message', 'Availabilty Texts Re-sent');
+        return Redirect::route('events.show', $event->id);
     }
 }

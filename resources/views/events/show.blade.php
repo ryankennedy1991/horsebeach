@@ -136,6 +136,36 @@
                                                             <div class="separator">
                                                                 <span></span>
                                                             </div>
+                             <div class="row-fluid">                               
+                                <div class="span12">
+
+                                    <div class="widget_wrapper">
+
+                                        <div class="widget_header " >
+                                            <h3 class="icos_mail">Resend availability SMS's</h3>
+                                        </div>
+
+                                        <div class="widget_content" >
+                                            <p>Who should we ask for availability?</p>
+                                            <form action="{{ url('/events/resend')}}/{{$event->id}}" method="POST">
+                                            {{ csrf_field() }}
+                                            Ryan <input type="checkbox" name="ryan-check"><br>
+                                            Matt <input type="checkbox" name="matt-check"><br>
+                                            Tom <input type="checkbox" name="tom-check"><br>
+                                            Dave <input type="checkbox" name="dave-check"><br>
+                                            <br>
+
+                                            <input type="submit" name="send-texts" value="Resend">
+                                            </form>
+                                        </div>
+
+                                    </div><!-- widget_wrapper end -->
+                                </div>
+                                </div>
+
+                                        <div class="separator">
+                                                                <span></span>
+                                                            </div>
 
                                                             <a class="btn btn-success" href="/events/{{$event->id}}/edit">Edit Event</a>
 
@@ -170,6 +200,14 @@
 
     
 
+
+@endsection
+
+@section("extrascript")
+ <script type="text/javascript">
+     $('#collapsible').collapse("hide");
+
+ </script>
 
 @endsection
 

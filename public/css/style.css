@@ -1233,6 +1233,10 @@ h6 {
     background-image: url(../img/icons/gray/glyphicons_021_snowflake.png);
 }
 
+.icos_mail{
+    background-image: url(../img/icons/gray/glyphicons_010_envelope.png);
+}
+
 .icos_turtle{
     background-image: url(../img/icons/gray/glyphicons_338_turtle.png);
 }

@@ -15,7 +15,10 @@
 use App\Notifications\GigOffer;
 
 
+Route::get('/sms/send/{to}', function(\Nexmo\Client $nexmo, $to){
 
+    Log::info('sent message: ' . $message['message-id']);
+});
 
 Route::get('logout', function() {
     Auth::logout();
@@ -30,8 +33,9 @@ Auth::routes();
 
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::post('/events/resend/{id}', 'EventsController@resend');
 	Route::get('/', 'DashboardController@index');
-Route::get('/home', 'DashboardController@index');
+	Route::get('/home', 'DashboardController@index');
 	Route::get('dashboard', 'DashboardController@index');
 	 Route::post('events/{id}/attachment', ['as' => 'addAttachment', 'uses' => 'EventsController@addAttachment']);
 	 Route::post('events/{id}/attachment/{aid}', ['as' => 'deleteAttachment', 'uses' => 'EventsController@deleteAttachment']);
