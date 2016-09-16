@@ -63,8 +63,76 @@
                                      
                                 @endif
 
-                                <p>Name: {{$user->name}}</p>
-                                <p>Email Address: {{$user->email}}</p>
+                                <p>Name: {{$user->name}} - <a href="#nameModal" role="button" data-toggle="modal">edit</a></p>
+                                <p>Email Address: {{$user->email}} - <a href="#emailModal" role="button" data-toggle="modal">edit</a></p>
+                                <p>Phone Number: {{($user->phone_number) ? $user->phone_number : "No number, please add one."}} - <a href="#phoneModal"  role="button" data-toggle="modal">edit</a></p>
+
+
+                                        <div class="widget_content">
+                                            
+
+                                            <div class="modal hide fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: hidden;">
+                                                <div class="modal-header">
+                                                <form action="{{ url('/users') }}/{{$user->id}}/edit" method="POST">
+                                                {{ csrf_field() }}
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h3 id="myModalLabel">Edit name</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <input type="text" name="name" value="{{$user->name}}">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                    <button class="btn btn-primary">Save changes</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget_content">
+                                            
+
+
+                                            <div class="modal hide fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: hidden;">
+                                                <div class="modal-header">
+                                                <form action="{{ url('/users') }}/{{$user->id}}/edit" method="POST">
+                                                {{ csrf_field() }}
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h3 id="myModalLabel">Edit email</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <input type="text" name="email" value="{{$user->email}}">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                    <button class="btn btn-primary">Save changes</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget_content">
+                                            
+
+
+                                            <div class="modal hide fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: hidden;">
+                                                <div class="modal-header">
+                                                <form action="{{ url('/users') }}/{{$user->id}}/edit" method="POST">
+                                                {{ csrf_field() }}
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h3 id="myModalLabel">Edit phone number</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Include code e.g 07885451828 should be 447885451828</p>
+                                                    <input type="text" name="phone" value="{{$user->phone_number}}">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                    <button class="btn btn-primary">Save changes</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
 
 
 

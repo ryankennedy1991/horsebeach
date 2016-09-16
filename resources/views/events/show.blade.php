@@ -99,6 +99,17 @@
                                                             <div class="separator">
                                                                 <span></span>
                                                             </div>
+                                                            <h3>Advance Details:</h3>
+                                                            <h4>Load in: {{ ($event->loadin) ? $event->loadin : "TBC"}}</h4>
+                                                            <h4>Sound Check / Line Check: {{ ($event->soundcheck) ? $event->soundcheck : "TBC"}} </h4>
+                                                            <h4>Stage Time: {{ ($event->stagetime) ? $event->stagetime : "TBC"}}</h4>
+
+
+
+                                                              <div class="separator">
+                                                                <span></span>
+                                                            </div>
+                                                          
                                                           
                                                           <h4>Description:</h4>
                                                           <p> {!! $event->description !!} </p>

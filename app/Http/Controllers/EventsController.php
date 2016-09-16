@@ -93,6 +93,9 @@ class EventsController extends Controller
     		$event->event_title = $request->input('event-title');
     		$event->event_begin = $begindate;
     		$event->event_end = $enddate;
+            $event->loadin = $request->input('loadin');
+            $event->soundcheck = $request->input('soundcheck');
+            $event->stagetime = $request->input('stagetime');
     		$event->location = $request->input('location');
     		$event->fee = (empty($request->input('fee'))) ? 0 : $request->input('fee');
     		$event->colour = $request->input('colour');
@@ -169,6 +172,9 @@ class EventsController extends Controller
     		$event->event_title = $request->input('event-title');
     		$event->event_begin = $begindate;
     		$event->event_end = $enddate;
+            $event->loadin = $request->input('loadin');
+            $event->soundcheck = $request->input('soundcheck');
+            $event->stagetime = $request->input('stagetime');
     		$event->location = $request->input('location');
     		$event->fee = (empty($request->input('fee'))) ? 0 : $request->input('fee');
     		$event->colour = $request->input('colour');

@@ -40,7 +40,8 @@ Route::group(['middleware' => 'auth'], function(){
 	 Route::post('events/{id}/attachment', ['as' => 'addAttachment', 'uses' => 'EventsController@addAttachment']);
 	 Route::post('events/{id}/attachment/{aid}', ['as' => 'deleteAttachment', 'uses' => 'EventsController@deleteAttachment']);
 	Route::resource('events', 'EventsController');
-	Route::get('users/{id}', 'UsersController@show');
+	Route::get('users/{id}', ['as' => 'userShow', 'uses' => 'UsersController@show']);
+	Route::post('users/{id}/edit', 'UsersController@update' );
 });
 
 

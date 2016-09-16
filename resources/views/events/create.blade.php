@@ -118,6 +118,43 @@
                                                 </span>
                                             @endif
 
+
+              <div class="form_inputs clearfix">
+                                                <div class="row-fluid">
+                                                    <div class="span2">
+                                                        <label class="control-label">Load in:</label>
+                                                    </div>
+
+                                                    <div class="span2">
+                                                        <input value="" type="text" name="loadin" placeholder="Load in time" class="span11">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form_inputs clearfix">
+                                                <div class="row-fluid">
+                                                    <div class="span2">
+                                                        <label class="control-label">Sound check:</label>
+                                                    </div>
+
+                                                    <div class="span2">
+                                                        <input value="" type="text" name="soundcheck" placeholder="Sound check time" class="span11">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form_inputs clearfix">
+                                                <div class="row-fluid">
+                                                    <div class="span2">
+                                                        <label class="control-label">Stage time:</label>
+                                                    </div>
+
+                                                    <div class="span2">
+                                                        <input value="" type="text" name="stagetime" placeholder="Stage time" class="span11">
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="form_inputs clearfix">
                                                 <div class="row-fluid">
                                                     <div class="span2">
@@ -129,6 +166,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
 
                                             @if ($errors->has('location'))
                                                 <span class="help-block">

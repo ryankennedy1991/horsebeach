@@ -66,7 +66,7 @@
                                             <div class="form_inputs clearfix">
                                                 <div class="row-fluid">
                                                     <div class="span2">
-                                                        <label class="control-label">Event Title:</label>
+                                                        <label class="control-label">Event title:</label>
                                                     </div>
 
                                                     <div class="span10">
@@ -82,7 +82,7 @@
                                             <div class="form_inputs clearfix">
                                                 <div class="row-fluid">
                                                     <div class="span2">
-                                                        <label class="control-label">Begin Date:</label>
+                                                        <label class="control-label">Begin date:</label>
                                                     </div>
 
                                                     <div class="span2">
@@ -100,11 +100,53 @@
                                             <div class="form_inputs clearfix">
                                                 <div class="row-fluid">
                                                     <div class="span2">
-                                                        <label class="control-label">End Date:</label>
+                                                        <label class="control-label">End date:</label>
                                                     </div>
 
                                                     <div class="span2">
                                                         <input value="{{$enddate->format('d-m-Y')}}" type="text" name="end-date" placeholder="e.g 27-02-2016" class="span11 dpicker">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @if ($errors->has('end-date'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('end-date') }}</strong>
+                                                </span>
+                                            @endif
+
+                                            <div class="form_inputs clearfix">
+                                                <div class="row-fluid">
+                                                    <div class="span2">
+                                                        <label class="control-label">Load in:</label>
+                                                    </div>
+
+                                                    <div class="span2">
+                                                        <input value="{{$event->loadin}}" type="text" name="loadin" placeholder="Load in time" class="span11">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form_inputs clearfix">
+                                                <div class="row-fluid">
+                                                    <div class="span2">
+                                                        <label class="control-label">Sound check:</label>
+                                                    </div>
+
+                                                    <div class="span2">
+                                                        <input value="{{$event->soundcheck}}" type="text" name="soundcheck" placeholder="Sound check time" class="span11">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form_inputs clearfix">
+                                                <div class="row-fluid">
+                                                    <div class="span2">
+                                                        <label class="control-label">Stage time:</label>
+                                                    </div>
+
+                                                    <div class="span2">
+                                                        <input value="{{$event->stagetime}}" type="text" name="stagetime" placeholder="Stage time" class="span11">
                                                     </div>
                                                 </div>
                                             </div>
