@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\User;
 use Session;
 use Redirect;
+use Auth;
+use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
@@ -36,6 +38,32 @@ class UsersController extends Controller
 
     	Session::flash('message', 'Successfully updated account');
     	return Redirect::route('userShow', $user->id);
+
+    }
+
+    public function getPasswordForm(){
+    	return view('auth.passwords.passChange');
+    }
+
+    public function changePassword(Request $request){
+    	$user = Auth::user();
+
+    	$this->validate($request, [
+        	'password' => 'required|confirmed',
+    	]);
+
+    	$credentials = $request->only(
+        	'password', 'password_confirmation'
+    	);
+
+    	$user->forceFill([
+            'password' => bcrypt($request->input('password')),
+            'remember_token' => Str::random(60),
+        ])->save();
+
+    	Session::flash('message', 'Successfully changed password');
+    	return Redirect::route('userShow', $user->id);
+
 
     }
 }

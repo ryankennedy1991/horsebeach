@@ -135,7 +135,7 @@
                                         </div>
 
 
-                                        <a href="{{url('password/reset')}}">Reset Password</a>
+                                        <a href="{{url('users/password')}}">Reset Password</a>
 
 
 
