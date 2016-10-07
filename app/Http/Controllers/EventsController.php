@@ -280,9 +280,18 @@ class EventsController extends Controller
 
     }
 
-    public function destroy($id){
+    public function destroy(Request $request, $id){
     	$event = Event::find($id);
     	$attachments = $event->attachments()->get();
+        $reason = $request->input('reason');
+
+        if ($request->input('sms') == 'sms') {
+            $this->resend($request, $id, [
+                    'message' => 'cancel',
+                    'reason' => $reason
+                ]
+            );
+        }
 
     	foreach ($attachments as $attachment) {
     		Storage::disk('s3')->delete($attachment->location);
@@ -295,12 +304,19 @@ class EventsController extends Controller
 
     }
 
-    public function resend(Request $request, $id){
+    public function resend(Request $request, $id, $args ){
 
         $event = Event::find($id);
         $date = DateTime::createFromFormat('Y-m-d', $event->event_begin);
         $fdate = $date->format('l, jS F Y');
         $smsfee = ($event->fee == 0) ? 'TBC' : '£'.$event->fee;
+
+        if ($args['message'] == 'new'){
+            $message = 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.';
+        } 
+        if ($args['message'] == 'cancel'){
+            $message = 'CANCELLED: '.$event->event_title.' on '.$fdate.' at '.$event->location.'. Reason: '.$args['reason'];
+        }
 
 
 
@@ -309,7 +325,7 @@ class EventsController extends Controller
                     Nexmo::message()->send([
                         'to' => '447885451828',
                         'from' => '447885451828',
-                        'text' => 'New gig on '.$fdate.' at '.$event->location.', fee: '.$smsfee.'. Please let me know if you can make it.'
+                        'text' => $message
                     ]);
                 }
 

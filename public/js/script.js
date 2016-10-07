@@ -322,76 +322,6 @@ $(function(){
 
 
 
-    // Montage  Js Call Script Starts
-
-    montageGallery();
-
-    // Montage  Js Call Script Ends
-
-    // Raphael gallery Js Call Script Starts
-    try{
-        var li = $('.gallery').find('li');
-
-        li.each(function(i){
-            var t = $(this),
-                img = t.find('img'),
-                src = img.attr('src'),
-                width = li.width(),
-                height = li.height();
-
-            img.hide().after($('<div />').attr('id', 'holder'+i).addClass('holder'));
-
-            var r = Raphael('holder'+i, width*2, height*2),
-                rimg = r.image(src, width/2, height/2, width, height);
-
-            rimg.hover(function(event) {
-                this.animate({
-                    scale: 2,
-                    rotation : 0
-                }, 1200, 'elastic');
-            }, function (event) {
-                this.animate({
-                    scale: 1,
-                    rotation : 0
-                }, 1200, 'elastic');
-            });
-
-        });
-        li.hover(function(){
-            li.css({ 'z-index': 0 });
-            $(this).css({ 'z-index': 2 });
-        });
-    } catch (e){
-        errorMessage(e);
-    }
-
-
-    // Raphael gallery Js Call Script Ends
-
-    //ColorBox  Js Call Script Starts
-
-    try{
-        $(".bolt-colorbox").colorbox({rel:'bolt-colorbox', slideshow:true});
-    } catch (e){
-        errorMessage(e);
-    }
-    try{
-        $(".bolt-colorbox2").colorbox({rel:'bolt-colorbox2', slideshow:true});
-    } catch (e){
-        errorMessage(e);
-    }
-    try{
-        $(".bolt-colorbox3").colorbox({rel:'bolt-colorbox3', slideshow:true});
-    } catch (e){
-        errorMessage(e);
-    }
-    try{
-        $(".bolt-colorbox4").colorbox({rel:'bolt-colorbox4', slideshow:true});
-    } catch (e){
-        errorMessage(e);
-    }
-
-    //ColorBox  Js Call Script Ends
 
     // Embedly Js Call Script Starts
     try{
@@ -411,123 +341,8 @@ $(function(){
         $(this).parents('a').find('.embed').toggle();
     });
 
-    try{
-        // Embedly Js Call Script Ends
-
-        //Video Flowplayer Js Call Script Starts
-
-        flowplayer("player", "swf/flowplayer-3.2.14.swf", {
-
-            clip:{
-                autoPlay: false,
-                baseUrl:'http://stream.flowplayer.org'
-            }
-        }).playlist("#myplaylist", {loop:true});
-
-        // Video Flowplayer Js Call Script Ends
-    }catch(e){
-        errorMessage(e);
-    }
-
-    /********************************** File upload js start **********************/
-    try{
-        var dropbox = $('#dropbox'),
-            message = $('.message', dropbox);
-
-        dropbox.filedrop({
-            // The name of the $_FILES entry:
-            paramname:'pic',
-
-            maxfiles: 5,
-            maxfilesize: 2,
-            url: '/events',
-
-            uploadFinished:function(i,file,response){
-                $.data(file).addClass('done');
-                // response is the JSON object that post_file.php returns
-            },
-
-            error: function(err, file) {
-                switch(err) {
-                    case 'BrowserNotSupported':
-                        showMessage('Your browser does not support HTML5 file uploads!');
-                        break;
-                    case 'TooManyFiles':
-                        alert('Too many files! Please select 5 at most! (configurable)');
-                        break;
-                    case 'FileTooLarge':
-                        alert(file.name+' is too large! Please upload files up to 2mb (configurable).');
-                        break;
-                    default:
-                        break;
-                }
-            },
-
-            // Called before each upload is started
-            beforeEach: function(file){
-    
-            },
-
-            uploadStarted:function(i, file, len){
-                createImage(file);
-            },
-
-            progressUpdated: function(i, file, progress) {
-                $.data(file).find('.progress').width(progress);
-            }
-
-        });
-    } catch (e){
-        console.log(e);
-    }
-
-    var template = '<div class="preview">'+
-        '<span class="imageHolder">'+
-        '<img />'+
-        '<span class="uploaded"></span>'+
-        '</span>'+
-        '<div class="progressHolder progress_striped">'+
-        '<div class="progress"></div>'+
-        '</div>'+
-        '</div>';
 
 
-    function createImage(file){
-
-        var preview = $(template),
-            image = $('img', preview);
-
-        var reader = new FileReader();
-
-        image.width = 100;
-        image.height = 100;
-
-        reader.onload = function(e){
-
-            // e.target.result holds the DataURL which
-            // can be used as a source of the image:
-
-            image.attr('src',e.target.result);
-        };
-
-        // Reading the file as a DataURL. When finished,
-        // this will trigger the onload function above:
-        reader.readAsDataURL(file);
-
-        message.hide();
-        preview.appendTo(dropbox);
-
-        // Associating a preview container
-        // with the file, using jQuery's $.data():
-
-        $.data(file,preview);
-    }
-
-    function showMessage(msg){
-        message.html(msg);
-    }
-
-    /********************************** File upload js end **********************/
 
     // Little tabs js
     try{
@@ -542,9 +357,6 @@ $(function(){
     }
 
 
-    // Event calendar js
-
-   
 
     // ClEditor call
     try{

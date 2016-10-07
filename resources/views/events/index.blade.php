@@ -83,7 +83,7 @@
                 center:'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            editable:true,
+            editable:false,
             height:540,
             events:[
             @foreach ($events as $event)

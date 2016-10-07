@@ -163,7 +163,6 @@ $(function(){
 <script type="text/javascript" src="{{ URL::asset('js/jquery.validationEngine.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.validate.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.smartWizard-2.0.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery.filedrop.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/colResizable-1.3.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.tablesorter.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.dataTables.js') }}"></script>
@@ -178,15 +177,10 @@ $(function(){
 <script type="text/javascript" src="{{ URL::asset('js/jquery.cleditor.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.colorbox.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/blocksit.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery.montage.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/raphael.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.embedly.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/flowplayer-3.2.11.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/flowplayer.controls-3.2.10.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/flowplayer.playlist-3.2.10.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.colorPicker.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/jquery.fileupload.js') }}"></script>
+
 
 
 @yield('extrascript')

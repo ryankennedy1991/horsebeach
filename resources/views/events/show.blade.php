@@ -180,10 +180,78 @@
 
                                                             <a class="btn btn-success" href="/events/{{$event->id}}/edit">Edit Event</a>
 
-                                                           
-                                                            {!! Form::open(['method' => 'DELETE', 'route' => ['events.destroy', $event->id ], 'style' => 'display:inline;']) !!}
+
+                                                            @if ($event->confirmed) 
+                                                            <div class="modal hide fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: hidden;">
+                                                                <div class="modal-header">
+                                                                   
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                    <h3 id="myModalLabel">Cancel Event</h3>
+                                                                </div>
+
+                                                                {!! Form::open(['method' => 'DELETE', 'route' => ['events.destroy', $event->id ], 'style' => 'display:inline;']) !!}
+                                                                <div class="modal-body">
+                                                                    <div class="widget_wrapper">
+
+                                                                        <div class="widget_header " >
+                                                                        <h3 class="icos_mail">Cancellation SMS's</h3>
+                                                                        </div>
+
+                                                                        <div class="widget_content" >
+                                                                            <p>Who should we send cancellation SMS's to?</p>
+                                                                            
+                                                                            {{ csrf_field() }}
+                                                                            <input type="hidden" name="sms" value="sms">
+                                                                            Ryan <input type="checkbox" name="ryan-check"><br>
+                                                                            Matt <input type="checkbox" name="matt-check"><br>
+                                                                            Tom <input type="checkbox" name="tom-check"><br>
+                                                                            Dave <input type="checkbox" name="dave-check"><br>
+                                                                            <br>
+
+                                                                            Why was it cancelled? <br/><input type="text" name="reason">
+
+                                                                
+                                                                            
+                                                                        </div>
+
+                                                                    </div><!-- widget_wrapper end -->
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                                    
                                                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                                             {!! Form::close() !!}
+                                                                </div>
+                                                                </form>
+                                                                
+                                                                </div>
+
+                                                            <a class="btn-danger btn" href="#deleteModal" role="button" data-toggle="modal">Cancel Event</a>
+
+                                                            @else
+                                                            <div class="modal hide fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: hidden;">
+                                                                <div class="modal-header">
+                                                                   
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                    <h3 id="myModalLabel">Delete Event</h3>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                   <p>Are you sure you wnat to delete this event?</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['events.destroy', $event->id ], 'style' => 'display:inline;']) !!}
+                                                            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                                            {!! Form::close() !!}
+                                                                </div>
+                                                                </form>
+                                                                
+                                                                </div>
+
+                                                            <a class="btn-danger btn" href="#deleteModal" role="button" data-toggle="modal">Delete</a>
+                                                            @endif
+                                                            
                                                             
 
 
